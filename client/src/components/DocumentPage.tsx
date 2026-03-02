@@ -54,19 +54,6 @@ const DocumentPage = () => {
              */
             const edit = (owner || isShared) && (!data.userEditing || data.userEditing === userID) && (!data.viewOnly || owner)
 
-            
-            /*
-            console.log({
-                userID,
-                dataUserID: data.userID,
-                dataShared: data.shared,
-                owner,
-                isShared,
-                dataUserEditing: data.userEditing,
-                dataViewOnly: data.viewOnly,
-                edit
-            });
-            */
 
             if (userID && (owner || isShared)){
                 // console.log("EditLog")
