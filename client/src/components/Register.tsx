@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 
 
-// Registration request to backend
+// Registration request to backend. Sends username and the desired password to be hashed
 const fetchData = async (username: string, password: string) => {
     try{
         const response = await fetch("http://localhost:1234/user/register", {

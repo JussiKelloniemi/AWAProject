@@ -19,12 +19,12 @@ router.post("/register",
         const errors: Result<ValidationError> = validationResult(req)
 
         if(!errors.isEmpty()) {
-            console.log(errors);
+            //console.log(errors);
             return res.status(400).json({errors: errors.array()})
         }
     try {
         const existingUser: IUser | null = await User.findOne({username: req.body.username})
-        console.log(existingUser)
+        //console.log(existingUser)
         if (existingUser) {
             return res.status(403).json({username: "username already in use"})
         }
@@ -34,7 +34,7 @@ router.post("/register",
             username: req.body.username,
             password: hash
         })
-        console.log(User)
+        //console.log(User)
         return res.status(200).json({message: "User registered successfully"})
         
     } catch (error: any) {
@@ -47,7 +47,7 @@ router.post("/register",
 
 /**
  * post /login
- * Searches for user from the database
+ * Searches for user from the database and returns token
  */
 router.post("/login",
     body("username").trim().escape(),
